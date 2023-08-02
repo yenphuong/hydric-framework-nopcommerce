@@ -33,8 +33,13 @@ public class BasePage {
 	// Hoàn thành xong phần thân của hàm (trả lời cho 2/ 4/ 5)
 	// - Nếu như có return dữ liệu thì sẽ khớp với kiểu dữ liệu ở số 2
 	// - Nếu như có return thì nó là cái step cuối cùng
-
-	/* Web Browser */
+	
+	
+	// Không cần khởi tạo đối tượng mà vẫn gọi được
+	public static BasePage getBasePage() {
+		return new BasePage();
+	}
+	
 	public void openPageUrl(WebDriver driver, String pageUrl) {
 		// Biến cục bộ, ưu tiên dùng biến cục bộ trước
 		// Nếu muốn dùng biến cùng tên mà toàn cục thì dùng this chấm, ví dụ: this.driver
@@ -117,8 +122,6 @@ public class BasePage {
 		driver.switchTo().window(parentID);
 	}
 
-	/* Web Element */
-
 	public By getByXpath(String locator) {
 		return By.xpath(locator);
 	}
@@ -155,6 +158,20 @@ public class BasePage {
 	
 	public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childLocator, String expectedTextItem) {
 		getWebElement(driver, parentLocator).click();
+		sleepInSecond(1);
+		List<WebElement> speedDropdownItems = new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childLocator)));
+		for (WebElement tempItem : speedDropdownItems) {
+			if (tempItem.getText().trim().equals(expectedTextItem)) {
+				sleepInSecond(1);
+				tempItem.click();
+				break;
+			}
+		}
+	}
+	
+	public void enterItemInCustomDropdown(WebDriver driver, String parentLocator, String childLocator, String expectedTextItem) {
+		getWebElement(driver, parentLocator).clear();
+		sendkeyToElement(driver, parentLocator, expectedTextItem);
 		sleepInSecond(1);
 		List<WebElement> speedDropdownItems = new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childLocator)));
 		for (WebElement tempItem : speedDropdownItems) {
@@ -219,7 +236,7 @@ public class BasePage {
 	}
 	
 	public void switchToIframe(WebDriver driver, String locator) {
-		driver.switchTo().frame(getWebElement(driver, locator));
+		new WebDriverWait(driver, 30).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(getByXpath(locator)));
 	}
 	
 	public void switchToDefaultContent(WebDriver driver) {
@@ -343,23 +360,6 @@ public class BasePage {
 	public void waitForElementClickable(WebDriver driver, String locator) {
 		new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
 	}
-	public void enterItemInCustomDropdown(WebDriver driver, String parentLocator, String childLocator, String expectedTextItem) {
-		getWebElement(driver, parentLocator).clear();
-		sendkeyToElement(driver, parentLocator, expectedTextItem);
-		sleepInSecond(1);
-		List<WebElement> speedDropdownItems = new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childLocator)));
-		for (WebElement tempItem : speedDropdownItems) {
-			if (tempItem.getText().trim().equals(expectedTextItem)) {
-				sleepInSecond(1);
-				tempItem.click();
-				break;
-			}
-		}
-	}
-
-	
-	
-	
 	
 	public void sleepInSecond(long timeInSecond) {
 		try {
@@ -370,5 +370,8 @@ public class BasePage {
 		}
 	}
 
-	
+	public static BasePage getBagePage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
