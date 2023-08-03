@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 
-public class Level_02_BasePage_Inheritance extends BasePage {
+public class Level_03_PageObject extends BasePage {
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	private String osName = System.getProperty("os.name");

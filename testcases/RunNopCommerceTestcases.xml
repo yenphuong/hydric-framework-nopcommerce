@@ -4,6 +4,8 @@
     <classes>
       <class name="com.nopcommerce.account.Level_01_DRY"/>
       <class name="com.nopcommerce.account.Level_02_BasePage_Init"/>
+      <class name="com.nopcommerce.account.Level_02_BasePage_Static"/>
+      <class name="com.nopcommerce.account.Level_02_BasePage_Inheritance"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

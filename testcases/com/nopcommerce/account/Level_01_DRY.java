@@ -29,7 +29,7 @@ public class Level_01_DRY {
 		driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 	}
 
 	@Test

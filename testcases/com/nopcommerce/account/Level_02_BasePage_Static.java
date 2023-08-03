@@ -30,7 +30,7 @@ public class Level_02_BasePage_Static {
 		}
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 	}
 
 	@Test
