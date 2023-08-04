@@ -36,8 +36,8 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 	public void Register_01_Empty_Data() {
 		openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		clickWebElement(driver, "//a[@class='ico-register']");
-		clickWebElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//span[@id='FirstName-error']"),
 				"First name is required.");
@@ -52,7 +52,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 	public void Register_02_Invalid_Email() {
 		openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		clickWebElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -60,7 +60,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 		sendkeyToElement(driver, "//input[@id='Password']", "123456");
 		sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
-		clickWebElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//span[@id='Email-error']"), "Wrong email");
 	}
@@ -69,7 +69,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 	public void Register_03_Invalid_Password() {
 		openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		clickWebElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -77,7 +77,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 		sendkeyToElement(driver, "//input[@id='Password']", "12");
 		sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "12");
 
-		clickWebElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//span[@id='Password-error']"),
 				"Password must meet the following rules:\nmust have at least 6 characters");
@@ -87,7 +87,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 	public void Register_04_Incorrect_Confirm_Password() {
 		openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		clickWebElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -95,7 +95,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 		sendkeyToElement(driver, "//input[@id='Password']", "123456");
 		sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "122456");
 
-		clickWebElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//span[@id='ConfirmPassword-error']"),
 				"The password and confirmation password do not match.");
@@ -105,7 +105,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 	public void Register_05_Success() {
 		openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		clickWebElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -113,7 +113,7 @@ public class Level_02_BasePage_Inheritance extends BasePage {
 		sendkeyToElement(driver, "//input[@id='Password']", "123456");
 		sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
-		clickWebElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//div[@class='result']"), "Your registration completed");
 

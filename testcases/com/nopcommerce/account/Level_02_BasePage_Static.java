@@ -37,8 +37,8 @@ public class Level_02_BasePage_Static {
 	public void Register_01_Empty_Data() {
 		basePage.openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		basePage.clickWebElement(driver, "//a[@class='ico-register']");
-		basePage.clickWebElement(driver, "//button[@id='register-button']");
+		basePage.clickToElement(driver, "//a[@class='ico-register']");
+		basePage.clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(basePage.getElementText(driver, "//span[@id='FirstName-error']"),
 				"First name is required.");
@@ -53,7 +53,7 @@ public class Level_02_BasePage_Static {
 	public void Register_02_Invalid_Email() {
 		basePage.openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		basePage.clickWebElement(driver, "//a[@class='ico-register']");
+		basePage.clickToElement(driver, "//a[@class='ico-register']");
 
 		basePage.sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		basePage.sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -61,7 +61,7 @@ public class Level_02_BasePage_Static {
 		basePage.sendkeyToElement(driver, "//input[@id='Password']", "123456");
 		basePage.sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
-		basePage.clickWebElement(driver, "//button[@id='register-button']");
+		basePage.clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(basePage.getElementText(driver, "//span[@id='Email-error']"), "Wrong email");
 	}
@@ -70,7 +70,7 @@ public class Level_02_BasePage_Static {
 	public void Register_03_Invalid_Password() {
 		basePage.openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		basePage.clickWebElement(driver, "//a[@class='ico-register']");
+		basePage.clickToElement(driver, "//a[@class='ico-register']");
 
 		basePage.sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		basePage.sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -78,7 +78,7 @@ public class Level_02_BasePage_Static {
 		basePage.sendkeyToElement(driver, "//input[@id='Password']", "12");
 		basePage.sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "12");
 
-		basePage.clickWebElement(driver, "//button[@id='register-button']");
+		basePage.clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(basePage.getElementText(driver, "//span[@id='Password-error']"),
 				"Password must meet the following rules:\nmust have at least 6 characters");
@@ -88,7 +88,7 @@ public class Level_02_BasePage_Static {
 	public void Register_04_Incorrect_Confirm_Password() {
 		basePage.openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		basePage.clickWebElement(driver, "//a[@class='ico-register']");
+		basePage.clickToElement(driver, "//a[@class='ico-register']");
 
 		basePage.sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		basePage.sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -96,7 +96,7 @@ public class Level_02_BasePage_Static {
 		basePage.sendkeyToElement(driver, "//input[@id='Password']", "123456");
 		basePage.sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "122456");
 
-		basePage.clickWebElement(driver, "//button[@id='register-button']");
+		basePage.clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(basePage.getElementText(driver, "//span[@id='ConfirmPassword-error']"),
 				"The password and confirmation password do not match.");
@@ -106,7 +106,7 @@ public class Level_02_BasePage_Static {
 	public void Register_05_Success() {
 		basePage.openPageUrl(driver, "https://demo.nopcommerce.com/");
 
-		basePage.clickWebElement(driver, "//a[@class='ico-register']");
+		basePage.clickToElement(driver, "//a[@class='ico-register']");
 
 		basePage.sendkeyToElement(driver, "//input[@id='FirstName']", "John");
 		basePage.sendkeyToElement(driver, "//input[@id='LastName']", "Hihi");
@@ -114,7 +114,7 @@ public class Level_02_BasePage_Static {
 		basePage.sendkeyToElement(driver, "//input[@id='Password']", "123456");
 		basePage.sendkeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
-		basePage.clickWebElement(driver, "//button[@id='register-button']");
+		basePage.clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(basePage.getElementText(driver, "//div[@class='result']"), "Your registration completed");
 
