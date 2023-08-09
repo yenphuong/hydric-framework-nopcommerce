@@ -42,7 +42,7 @@ public class BaseTest {
 		return driver;
 	} 
 
-	public String getEmailRandom() {
+	protected String getEmailRandom() {
 		Random rand = new Random();
 		return "john" + rand.nextInt(99999) + "@hihi.com";
 	}

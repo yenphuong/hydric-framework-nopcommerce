@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import commons.PageGeneratorManager;
 import pageUIs.HomePageUI;
 import pageUIs.RegisterPageUI;
 
@@ -43,9 +44,10 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR_MESSAGE);
 	}
 
-	public void clickToNopCommerceLogo() {
+	public HomePageObject clickToNopCommerceLogo() {
 		waitForElementClickable(driver, RegisterPageUI.NOP_COMMERCE_LOGO);
 		clickToElement(driver, RegisterPageUI.NOP_COMMERCE_LOGO);
+		return PageGeneratorManager.getHomePage(driver);
 	}
 
 	public void enterToFirstNameTextbox(String firstNameValue) {
