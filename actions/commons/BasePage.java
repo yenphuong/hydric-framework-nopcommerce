@@ -16,6 +16,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.AddressPageObject;
+import pageObjects.CustomerPageObject;
+import pageObjects.OrderPageObject;
+import pageObjects.RewardPointPageObject;
+import pageObjects.SearchPageObject;
+import pageUIs.BasePageUI;
+
 public class BasePage {
 	// Toàn cục: phạm vi là ở Class
 	// WebDriver driver;
@@ -402,4 +409,29 @@ public class BasePage {
 			e.printStackTrace();
 		}
 	}
+
+	public AddressPageObject openAddressPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ADDRESS_LINK_TEXT);
+		clickToElement(driver, BasePageUI.ADDRESS_LINK_TEXT);
+		return PageGeneratorManager.getAddressPage(driver);
+	}
+
+	public OrderPageObject openOrderPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ORDER_LINK_TEXT);
+		clickToElement(driver, BasePageUI.ORDER_LINK_TEXT);
+		return PageGeneratorManager.getOrderPage(driver);
+	}
+	
+	public RewardPointPageObject openRewardPointPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.REWARD_POINT_LINK_TEXT);
+		clickToElement(driver, BasePageUI.REWARD_POINT_LINK_TEXT);
+		return PageGeneratorManager.getRewardPointPage(driver);
+	}
+	
+	public CustomerPageObject openCustomerPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.CUSTOMER_INFO_LINK_TEXT);
+		clickToElement(driver, BasePageUI.CUSTOMER_INFO_LINK_TEXT);
+		return PageGeneratorManager.getCustomerPage(driver);
+	}
+
 }

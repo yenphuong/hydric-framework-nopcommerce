@@ -134,7 +134,7 @@ public class Level_07_Page_Manager_3 extends BaseTest {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
 }
