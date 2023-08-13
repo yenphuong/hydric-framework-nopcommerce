@@ -12,16 +12,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import pageObjects.AddressPageObject;
-import pageObjects.CustomerPageObject;
-import pageObjects.OrderPageObject;
-import pageObjects.RewardPointPageObject;
-import pageObjects.SearchPageObject;
-import pageUIs.BasePageUI;
 
 public class BasePage {
 	// Toàn cục: phạm vi là ở Class
@@ -410,28 +404,22 @@ public class BasePage {
 		}
 	}
 
-	public AddressPageObject openAddressPage(WebDriver driver) {
-		waitForElementClickable(driver, BasePageUI.ADDRESS_LINK_TEXT);
-		clickToElement(driver, BasePageUI.ADDRESS_LINK_TEXT);
-		return PageGeneratorManager.getAddressPage(driver);
-	}
+	public boolean isPageLoadedSuccess(WebDriver driver) {
+		WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return (Boolean) jsExecutor.executeScript("return (window.jQuery != null) && (jQuery.active === 0);");
+			}
+		};
 
-	public OrderPageObject openOrderPage(WebDriver driver) {
-		waitForElementClickable(driver, BasePageUI.ORDER_LINK_TEXT);
-		clickToElement(driver, BasePageUI.ORDER_LINK_TEXT);
-		return PageGeneratorManager.getOrderPage(driver);
+		ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return jsExecutor.executeScript("return document.readyState").toString().equals("complete");
+			}
+		};
+		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
-	
-	public RewardPointPageObject openRewardPointPage(WebDriver driver) {
-		waitForElementClickable(driver, BasePageUI.REWARD_POINT_LINK_TEXT);
-		clickToElement(driver, BasePageUI.REWARD_POINT_LINK_TEXT);
-		return PageGeneratorManager.getRewardPointPage(driver);
-	}
-	
-	public CustomerPageObject openCustomerPage(WebDriver driver) {
-		waitForElementClickable(driver, BasePageUI.CUSTOMER_INFO_LINK_TEXT);
-		clickToElement(driver, BasePageUI.CUSTOMER_INFO_LINK_TEXT);
-		return PageGeneratorManager.getCustomerPage(driver);
-	}
-
 }

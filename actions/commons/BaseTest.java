@@ -41,6 +41,35 @@ public class BaseTest {
 		driver.get("https://demo.nopcommerce.com/");
 		return driver;
 	}
+	
+	protected WebDriver getBrowerDriver(String browserName, String url) {
+		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
+
+		switch (browser) {
+		case FIREFOX:
+			driver = new FirefoxDriver();
+			break;
+		case CHROME:
+			driver = new ChromeDriver();
+			break;
+		case EDGE:
+			driver = new EdgeDriver();
+			break;
+		case SAFARI:
+			driver = new SafariDriver();
+			break;
+		default:
+			throw new RuntimeException("Browser's name is not valid.");
+		}
+
+		driver.manage().window().setPosition(new Point(0, 0));
+		driver.manage().window().setSize(new Dimension(1440, 990));
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.get(url);
+		return driver;
+	}
+
 
 	protected String getEmailRandom() {
 		Random rand = new Random();

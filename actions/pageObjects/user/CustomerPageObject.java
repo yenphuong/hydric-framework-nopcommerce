@@ -1,14 +1,14 @@
-package pageObjects;
+package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
-import pageUIs.CustomerPageUI;
+import pageUIs.user.CustomerPageUI;
 
-public class CustomerPageObject extends BasePage {
+public class CustomerPageObject extends MyAccountSidebarPageObject {
 	WebDriver driver;
 
 	public CustomerPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
@@ -20,7 +20,6 @@ public class CustomerPageObject extends BasePage {
 	public String getLastNameTextboxAttributeValue() {
 		waitForElementVisible(driver, CustomerPageUI.LASTNAME_TEXTBOX);
 		return getElementAttribute(driver, CustomerPageUI.LASTNAME_TEXTBOX, "value");
-
 	}
 
 	public String getEmailAddressTextboxAttributeValue() {

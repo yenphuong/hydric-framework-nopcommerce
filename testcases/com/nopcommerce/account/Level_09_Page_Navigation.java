@@ -16,8 +16,9 @@ import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.OrderPageObject;
 import pageObjects.user.RegisterPageObject;
 import pageObjects.user.RewardPointPageObject;
+import pageObjects.user.SearchPageObject;
 
-public class Level_08_Switch_Page extends BaseTest {
+public class Level_09_Page_Navigation extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
@@ -73,15 +74,13 @@ public class Level_08_Switch_Page extends BaseTest {
 
 	@Test
 	public void User_03_Switch_Page() {
-		/*
-		 * addressPage = customerPage.openAddressPage(driver);
-		 * 
-		 * rewardPointPage = addressPage.openRewardPointPage(driver);
-		 * 
-		 * customerPage = rewardPointPage.openCustomerPage(driver);
-		 * 
-		 * orderPage = customerPage.openOrderPage(driver);
-		 */
+		addressPage = customerPage.openAddressPage(driver);
+		
+		rewardPointPage = addressPage.openRewardPointPage(driver);
+		
+		customerPage = rewardPointPage.openCustomerPage(driver);
+		
+		orderPage = customerPage.openOrderPage(driver);
 	}
 	@AfterClass
 	public void afterClass() {
