@@ -17,7 +17,28 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePageFactory {
-	
+	// Toàn cục: phạm vi là ở Class
+	// WebDriver driver;
+
+	// Các hàm tương tác hầu như là void: click/ sendkeys/ accept/ cancel/ select
+	// Các hàm lấy dữ liệu ra thì hầu như là String/ int WebElement/
+	// List<WebElement>
+
+	// 1 - Access Modifier: public/ proteceted/ private/ default
+	// 2 - Kiểu dữ liệu của hàm (Data type): void/ int/ String/ boolean/ WebElement/
+	// List<WebElement>/..
+	// Nó sẽ liên quan đến cái chức năng trong thân hàm
+	// 3 - Tên hàm: Đặt tên có nghĩa theo chức năng đang cần viết
+	// - Convention tuân theo chuẩn của từng ngôn ngữ lập trình (Java)
+	// - camelCase: từ đầu tiên viết thường - chữ cái đầu tiên của các từ tiếp theo
+	// viết hoa
+	// 4 - Có tham số hay không (tùy vào chức năng cần viết)
+	// 5 - Kiểu dữ liệu trả về cho hàm
+	// Hoàn thành xong phần thân của hàm (trả lời cho 2/ 4/ 5)
+	// - Nếu như có return dữ liệu thì sẽ khớp với kiểu dữ liệu ở số 2
+	// - Nếu như có return thì nó là cái step cuối cùng
+
+	// Không cần khởi tạo đối tượng mà vẫn gọi được
 	public static BasePage getBasePage() {
 		return new BasePage();
 	}
