@@ -3,7 +3,7 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Level_11_Global_Contants" />
+			<class name="com.nopcommerce.account.Level_12_Dynamic_Locator_Rest_Param" />
 		</classes>
 	</test>
 	

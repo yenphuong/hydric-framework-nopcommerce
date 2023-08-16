@@ -18,7 +18,7 @@ import pageObjects.user.RegisterPageObject;
 import pageObjects.user.RewardPointPageObject;
 import pageObjects.user.SearchPageObject;
 
-public class Level_09_Page_Navigation extends BaseTest {
+public class Level_12_Dynamic_Locator_Rest_Param extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
@@ -71,7 +71,7 @@ public class Level_09_Page_Navigation extends BaseTest {
 		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "Hihi");
 		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddress);
 	}
-
+	
 	@Test
 	public void User_03_Switch_Page() {
 		addressPage = customerPage.openAddressPage();
@@ -82,6 +82,38 @@ public class Level_09_Page_Navigation extends BaseTest {
 		
 		orderPage = customerPage.openOrderPage();
 	}
+
+	@Test
+	public void User_04_Switch_Page() {
+		customerPage = (CustomerPageObject) orderPage.openDynamicSidebarPage("Customer info");
+		
+		addressPage = (AddressPageObject) customerPage.openDynamicSidebarPage("Addresses");
+		
+		rewardPointPage = (RewardPointPageObject) addressPage.openDynamicSidebarPage("Reward points");
+		
+		customerPage = (CustomerPageObject) rewardPointPage.openDynamicSidebarPage("Customer info");
+		
+		orderPage = (OrderPageObject) customerPage.openDynamicSidebarPage("Orders");
+	}
+	
+	@Test
+	public void User_05_Switch_Page_By_Name_No_Return() {
+		orderPage.openDynamicSidebarPageByName("Customer info");
+		customerPage = PageGeneratorManager.getCustomerPage(driver);
+		
+		customerPage.openDynamicSidebarPageByName("Addresses");
+		addressPage = PageGeneratorManager.getAddressPage(driver);
+		
+		addressPage.openDynamicSidebarPageByName("Reward points");
+		rewardPointPage = PageGeneratorManager.getRewardPointPage(driver);
+		
+		rewardPointPage.openDynamicSidebarPageByName("Customer info");
+		customerPage = PageGeneratorManager.getCustomerPage(driver);
+		
+		customerPage.openDynamicSidebarPageByName("Orders");
+		orderPage = PageGeneratorManager.getOrderPage(driver);
+	}
+	
 	@AfterClass
 	public void afterClass() {
 		closeBrowser();

@@ -1,7 +1,5 @@
 package commons;
 
-import org.apache.commons.exec.OS;
-
 public class GlobalConstants {
 	public static final String DEV_USER_URL = "https://demo.nopcommerce.com";
 	public static final String DEV_ADMIN_URL = "https://admin-demo.nopcommerce.com";
