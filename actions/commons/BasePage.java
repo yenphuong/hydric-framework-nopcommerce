@@ -306,11 +306,11 @@ public class BasePage {
 	}
 
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
-		return getWebElement(driver, locator).isSelected();
+		return getWebElement(driver, locator).isDisplayed();
 	}
 	
 	public boolean isElementDisplayed(WebDriver driver, String locator, String... restParam) {
-		return getWebElement(driver, locator, restParam).isSelected();
+		return getWebElement(driver, locator, restParam).isDisplayed();
 	}
 
 	public boolean isElementSelected(WebDriver driver, String locator) {
