@@ -1,5 +1,8 @@
 package com.jquery.table;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -18,6 +21,7 @@ public class Level_13_Handle_DataTable extends BaseTest {
 	String columnCountry = "Country";
 	String columnMales = "Males";
 	String columnTotal = "Total";
+	List<String> allValuesUI = new ArrayList<String>();
 	@Parameters({"browser", "url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
@@ -56,15 +60,15 @@ public class Level_13_Handle_DataTable extends BaseTest {
 		
 	}
 	
-	@Test
+	
 	public void User_03_Verify_Element_Displayed() {
 		Assert.assertTrue(homePage.isRowDisplayed("750", "Aruba", "756", "1504"));
 		Assert.assertTrue(homePage.isRowDisplayed("764956", "Arab Rep of Egypt", "802948", "1567904"));
 		Assert.assertTrue(homePage.isRowDisplayed("12253515", "AFRICA", "12599691", "24853148"));
 	}
 	
-	@Test
-	public void User_03_Remove_Or_Edit_A_Row() {
+	
+	public void User_04_Remove_Or_Edit_A_Row() {
 		homePage.removeOrEditARow("Afghanistan", "remove");
 		homePage.removeOrEditARow("Algeria", "remove");
 		homePage.removeOrEditARow("Antigua and Barbuda", "remove");
@@ -73,12 +77,29 @@ public class Level_13_Handle_DataTable extends BaseTest {
 		homePage.refreshCurrentPage(driver);
 		
 		homePage.removeOrEditARow("Armenia", "edit");
+		homePage.refreshCurrentPage(driver);
+	}
+	
+	@Test
+	public void User_05_Get_All_Column_Value() {
+		// Buoc 1: lay ra tat ca cac page
+		// Buoc 2: Duyet qua tung page
+		// Buoc 3: Lay ra tat ca cac gia tri cua 1 cot trong page do -> luu ra List/ Set...
+		// Buoc 4: duyet het cac page con lai
 		
-		
-		
+		allValuesUI = homePage.getAllPageValuesByColumnName(columnCountry);
+		for (String value : allValuesUI) {
+			System.out.println(value);
+		}
+	//	allValuesDB = homePage.getAllPageValuesByColumnNameInDB(columnCountry);
+	//	Assert.assertEquals(allValuesUI, allValuesDB);
+	//	homePage.getAllPageValuesByColumnName(columnTotal);
 	}
 	
 	
+	public void User_06_Action_By_Index() {
+		
+	}
 	
 	@AfterClass
 	public void afterClass() {
