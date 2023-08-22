@@ -80,7 +80,7 @@ public class Level_13_Handle_DataTable extends BaseTest {
 		homePage.refreshCurrentPage(driver);
 	}
 	
-	@Test
+	
 	public void User_05_Get_All_Column_Value() {
 		// Buoc 1: lay ra tat ca cac page
 		// Buoc 2: Duyet qua tung page
@@ -96,14 +96,20 @@ public class Level_13_Handle_DataTable extends BaseTest {
 	//	homePage.getAllPageValuesByColumnName(columnTotal);
 	}
 	
-	
+	@Test
 	public void User_06_Action_By_Index() {
+		homePage.openPageUrl(driver, "https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
 		
+		homePage.enterToTextboxByColumnNameAndRowIndex("Contact Person", "2", "Oliver Kane");
+		homePage.enterToTextboxByColumnNameAndRowIndex("Company", "1", "Omo Matic");
+		
+		homePage.selectByColumnNameAndRowIndex("Country", "2", "Hong Kong");
+		homePage.selectByColumnNameAndRowIndex("Country", "3", "Taiwan");
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		closeBrowser();
+		//closeBrowser();
 	}
 
 }

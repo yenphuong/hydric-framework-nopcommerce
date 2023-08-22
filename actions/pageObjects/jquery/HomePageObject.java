@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import commons.BasePage;
+import graphql.validation.rules.VariableDefaultValuesOfCorrectType;
 import pageUIs.jquery.HomePageUI;
 
 public class HomePageObject extends BasePage {
@@ -67,9 +68,17 @@ public class HomePageObject extends BasePage {
 		return allValues;
 	}
 
-	public Object getAllPageValuesByColumnNameInDB(String columnCountry) {
-		// TODO Auto-generated method stub
-		return null;
+	public void enterToTextboxByColumnNameAndRowIndex(String columnName, String rowIndex, String valueToSend) {
+		int columnIndex = getListElementSize(driver, HomePageUI.DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
+		waitForElementVisible(driver, HomePageUI.DYNAMIC_TEXTBOX_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
+		sendkeyToElement(driver, HomePageUI.DYNAMIC_TEXTBOX_ROW_INDEX_AND_COLUMN_INDEX, valueToSend, rowIndex, String.valueOf(columnIndex));
+		
+	}
+
+	public void selectByColumnNameAndRowIndex(String columnName, String rowIndex, String dropdownItem) {
+		int columnIndex = getListElementSize(driver, HomePageUI.DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
+		waitForElementClickable(driver, HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
+		selectItemInDefaultDropdown(driver, HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX, dropdownItem, rowIndex, String.valueOf(columnIndex));
 	}
 
 }
