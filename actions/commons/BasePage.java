@@ -17,6 +17,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageUIs.user.BasePageUI;
+
 public class BasePage {
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 	public static BasePage getBasePage() {
@@ -158,6 +160,10 @@ public class BasePage {
 
 	public void clickToElement(WebDriver driver, String locator) {
 		getWebElement(driver, locator).click();
+	}
+	
+	public void clickToElement(WebDriver driver, WebElement element) {
+		element.click();
 	}
 	
 	public void clickToElement(WebDriver driver, String locator, String... restParam) {
@@ -512,21 +518,7 @@ public class BasePage {
 		return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;",
 				getWebElement(driver, locator, restParam));
 	}
-
-	public boolean isImageLoaded(WebDriver driver, String locator) {
-		boolean status = (boolean) ((JavascriptExecutor) driver).executeScript(
-				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
-				getWebElement(driver, locator));
-		return status;
-	}
 	
-	public boolean isImageLoaded(WebDriver driver, String locator, String... restParam) {
-		boolean status = (boolean) ((JavascriptExecutor) driver).executeScript(
-				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
-				getWebElement(driver, locator, restParam));
-		return status;
-	}
-
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(longTimeout))
 		.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
@@ -576,6 +568,11 @@ public class BasePage {
 		new WebDriverWait(driver, Duration.ofSeconds(longTimeout))
 				.until(ExpectedConditions.elementToBeClickable(getByLocator(getDynamicLocator(locator, restParam))));
 	}
+	
+	public void waitForElementClickable(WebDriver driver, WebElement element) {
+		new WebDriverWait(driver, Duration.ofSeconds(longTimeout))
+		.until(ExpectedConditions.elementToBeClickable(element));
+	}
 
 	public void sleepInSecond(long timeInSecond) {
 		try {
@@ -604,7 +601,29 @@ public class BasePage {
 		};
 		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
+
+	public boolean isImageLoaded(WebDriver driver, String locator) {
+		boolean status = (boolean) ((JavascriptExecutor) driver).executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
+				getWebElement(driver, locator));
+		return status;
+	}
 	
-	
+	public boolean isImageLoaded(WebDriver driver, String locator, String... restParam) {
+		boolean status = (boolean) ((JavascriptExecutor) driver).executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
+				getWebElement(driver, locator, restParam));
+		return status;
+	}
+
+	public void uploadMultipleFiles(WebDriver driver, String locator, String... fileNames) {
+		String filePath = GlobalConstants.UPLOAD_PATH ;
+		String fullFileName = "";
+		for (String file : fileNames) {
+			fullFileName = fullFileName + filePath + file + "\n";
+		}
+		fullFileName = fullFileName.trim();
+		getWebElement(driver, locator).sendKeys(fullFileName);
+	}
 	
 }

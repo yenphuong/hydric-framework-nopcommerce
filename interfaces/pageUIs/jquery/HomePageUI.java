@@ -12,4 +12,9 @@ public class HomePageUI {
 	public static final String DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME = "xpath=//th[text()='%s']/preceding-sibling::th";
 	public static final String DYNAMIC_TEXTBOX_ROW_INDEX_AND_COLUMN_INDEX = "xpath=//tr[%s]/td[%s]/input";
 	public static final String DYNAMIC_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX = "xpath=//tr[%s]/td[%s]//select";
+	public static final String DYNAMIC_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX = "xpath=//tr[%s]/td[%s]//input";
+	
+	
+	//public static final String UPLOAD_FILE_TYPE = "";
+
 }

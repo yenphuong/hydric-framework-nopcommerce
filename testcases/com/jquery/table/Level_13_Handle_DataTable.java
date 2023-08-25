@@ -105,6 +105,9 @@ public class Level_13_Handle_DataTable extends BaseTest {
 		
 		homePage.selectByColumnNameAndRowIndex("Country", "2", "Hong Kong");
 		homePage.selectByColumnNameAndRowIndex("Country", "3", "Taiwan");
+		
+		homePage.clickToCheckboxByColumnNameAndRowIndex("NPO?", "1");
+		homePage.clickToCheckboxByColumnNameAndRowIndex("NPO?", "3");
 	}
 	
 	@AfterClass
