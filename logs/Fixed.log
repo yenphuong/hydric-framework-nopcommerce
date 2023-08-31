@@ -1,0 +1,64 @@
+[31-08-2023 16:21:26.944 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[31-08-2023 16:21:27.053 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:21:27.054 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[31-08-2023 16:21:28.092 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[31-08-2023 16:21:28.316 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[31-08-2023 16:21:28.374 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[31-08-2023 16:21:28.375 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[31-08-2023 16:21:28.423 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:21:28.424 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Verify Firstname textbox
+[31-08-2023 16:21:28.604 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify Lastname textbox
+[31-08-2023 16:21:28.759 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 8: Verify Email textbox with email value isjohn58846@hihi.com
+[31-08-2023 16:21:28.949 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 9: Verify Password textbox
+[31-08-2023 16:21:29.105 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 10: Verify Confirm password textbox
+[31-08-2023 16:21:29.278 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 11: Click to Register button
+[31-08-2023 16:21:30.174 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 12: Verify success message is displayed
+[31-08-2023 16:21:30.226 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:23:24.625 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[31-08-2023 16:23:24.769 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:23:24.771 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[31-08-2023 16:23:25.900 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[31-08-2023 16:23:26.021 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[31-08-2023 16:23:26.084 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[31-08-2023 16:23:26.085 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[31-08-2023 16:23:26.130 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:23:26.130 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Verify Firstname textbox
+[31-08-2023 16:23:26.300 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify Lastname textbox
+[31-08-2023 16:23:26.434 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 8: Verify Email textbox with email value isjohn3324@hihi.com
+[31-08-2023 16:23:26.599 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 9: Verify Password textbox
+[31-08-2023 16:23:26.748 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 10: Verify Confirm password textbox
+[31-08-2023 16:23:26.874 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 11: Click to Register button
+[31-08-2023 16:23:27.709 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 12: Verify success message is displayed
+[31-08-2023 16:23:27.755 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:24:16.913 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[31-08-2023 16:24:17.009 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:24:17.009 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[31-08-2023 16:24:18.095 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[31-08-2023 16:24:18.252 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[31-08-2023 16:24:18.310 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[31-08-2023 16:24:18.311 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[31-08-2023 16:24:18.367 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:24:18.368 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Verify Firstname textbox
+[31-08-2023 16:24:18.552 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify Lastname textbox
+[31-08-2023 16:24:18.698 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 8: Verify Email textbox with email value isjohn42670@hihi.com
+[31-08-2023 16:24:18.917 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 9: Verify Password textbox
+[31-08-2023 16:24:19.102 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 10: Verify Confirm password textbox
+[31-08-2023 16:24:19.281 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 11: Click to Register button
+[31-08-2023 16:24:21.127 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 12: Verify success message is displayed
+[31-08-2023 16:24:21.176 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:26:33.995 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[31-08-2023 16:26:34.105 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:26:34.106 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[31-08-2023 16:26:36.054 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[31-08-2023 16:26:36.334 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[31-08-2023 16:26:36.461 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[31-08-2023 16:26:36.462 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[31-08-2023 16:26:36.517 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[31-08-2023 16:26:36.518 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Verify Firstname textbox
+[31-08-2023 16:26:36.807 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify Lastname textbox
+[31-08-2023 16:26:36.975 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 8: Verify Email textbox with email value isjohn96875@hihi.com
+[31-08-2023 16:26:37.210 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 9: Verify Password textbox
+[31-08-2023 16:26:37.389 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 10: Verify Confirm password textbox
+[31-08-2023 16:26:37.572 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 11: Click to Register button
+[31-08-2023 16:26:42.514 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 12: Verify success message is displayed
+[31-08-2023 16:26:42.616 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------

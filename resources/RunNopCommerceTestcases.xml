@@ -1,6 +1,7 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "testng-1.0.dtd" >
 
-<suite parallel="false" name="NopCommerce">
+<suite parallel="none" name="NopCommerce">
 	<listeners>
 	<listener class-name="commons.MethodListener"/>
 	</listeners>
@@ -8,7 +9,7 @@
 	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.nopcommerce.account.Level_15_Assert_Verify" />
+			<class name="com.nopcommerce.account.Level_16_Log" />
 		</classes>
 	</test>
 </suite>

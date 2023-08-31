@@ -12,5 +12,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="libSelenium/selenium-server-4.11.0.jar"/>
 	<classpathentry kind="lib" path="libSelenium/testng-7.8.0.jar"/>
+	<classpathentry kind="lib" path="log4jver2/log4j-api-2.19.0.jar"/>
+	<classpathentry kind="lib" path="log4jver2/log4j-core-2.19.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
