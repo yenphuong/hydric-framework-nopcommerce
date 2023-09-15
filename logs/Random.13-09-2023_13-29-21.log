@@ -1,0 +1,34 @@
+[13-09-2023 13:29:21.726 INFO com.nopcommerce.account.Level_16_Log] - Starting delete all file in ReportNG screenshot
+[13-09-2023 13:29:21.730 INFO com.nopcommerce.account.Level_16_Log] - Deleted success
+[13-09-2023 13:29:28.100 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[13-09-2023 13:29:28.182 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[13-09-2023 13:29:28.182 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[13-09-2023 13:29:29.253 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[13-09-2023 13:29:29.518 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[13-09-2023 13:29:29.546 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[13-09-2023 13:29:29.546 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[13-09-2023 13:29:29.569 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[13-09-2023 13:29:29.671 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Firstname textbox
+[13-09-2023 13:29:30.902 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Verify Lastname textbox
+[13-09-2023 13:29:30.944 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Verify Email textbox with email value isjohn34948@hihi.com
+[13-09-2023 13:29:30.989 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify Password textbox
+[13-09-2023 13:29:31.026 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify Confirm password textbox
+[13-09-2023 13:29:31.070 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Click to Register button
+[13-09-2023 13:29:32.353 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify success message is displayed
+[13-09-2023 13:29:32.401 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[13-09-2023 13:29:36.753 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[13-09-2023 13:29:36.798 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[13-09-2023 13:29:36.798 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[13-09-2023 13:29:37.840 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[13-09-2023 13:29:37.961 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[13-09-2023 13:29:38.005 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[13-09-2023 13:29:38.005 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[13-09-2023 13:29:38.040 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[13-09-2023 13:29:38.338 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Firstname textbox
+[13-09-2023 13:29:38.833 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Verify Lastname textbox
+[13-09-2023 13:29:38.926 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Verify Email textbox with email value isjohn65566@hihi.com
+[13-09-2023 13:29:39.037 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify Password textbox
+[13-09-2023 13:29:39.138 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify Confirm password textbox
+[13-09-2023 13:29:39.251 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Click to Register button
+[13-09-2023 13:29:40.606 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify success message is displayed
+[13-09-2023 13:29:40.639 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
