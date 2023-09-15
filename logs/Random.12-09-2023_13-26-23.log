@@ -1,0 +1,40 @@
+[12-09-2023 13:26:30.561 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[12-09-2023 13:26:30.629 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[12-09-2023 13:26:30.629 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[12-09-2023 13:26:31.700 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[12-09-2023 13:26:31.959 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[12-09-2023 13:26:31.992 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[12-09-2023 13:26:31.993 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[12-09-2023 13:26:32.016 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[12-09-2023 13:26:32.022 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Firstname textbox
+[12-09-2023 13:26:33.371 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Verify Lastname textbox
+[12-09-2023 13:26:33.418 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Verify Email textbox with email value isjohn59098@hihi.com
+[12-09-2023 13:26:33.456 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify Password textbox
+[12-09-2023 13:26:33.491 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify Confirm password textbox
+[12-09-2023 13:26:33.526 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Click to Register button
+[12-09-2023 13:26:35.290 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify success message is displayed
+[12-09-2023 13:26:35.330 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[12-09-2023 13:26:38.676 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Register link displayed
+[12-09-2023 13:26:38.720 INFO com.nopcommerce.account.Level_16_Log] - ------------------- FAILED -------------------
+[12-09-2023 13:26:38.721 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Click to Register link
+[12-09-2023 13:26:40.082 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Click to Register button
+[12-09-2023 13:26:40.187 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify error message at Firstname textbox
+[12-09-2023 13:26:40.224 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[12-09-2023 13:26:40.224 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify error message at Lastname textbox
+[12-09-2023 13:26:40.254 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[12-09-2023 13:26:40.257 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 1: Verify Firstname textbox
+[12-09-2023 13:26:41.308 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 2: Verify Lastname textbox
+[12-09-2023 13:26:41.402 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 3: Verify Email textbox with email value isjohn37912@hihi.com
+[12-09-2023 13:26:41.512 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 4: Verify Password textbox
+[12-09-2023 13:26:41.612 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 5: Verify Confirm password textbox
+[12-09-2023 13:26:41.713 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 6: Click to Register button
+[12-09-2023 13:26:42.763 INFO com.nopcommerce.account.Level_16_Log] - Register - Step 7: Verify success message is displayed
+[12-09-2023 13:26:42.796 INFO com.nopcommerce.account.Level_16_Log] - ------------------- PASSED -------------------
+[12-09-2023 13:26:57.604 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- FAILED -------------------
+[12-09-2023 13:26:59.048 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- PASSED -------------------
+[12-09-2023 13:26:59.077 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- FAILED -------------------
+[12-09-2023 13:27:00.363 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- FAILED -------------------
+[12-09-2023 13:27:05.048 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- FAILED -------------------
+[12-09-2023 13:27:06.738 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- PASSED -------------------
+[12-09-2023 13:27:06.804 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- FAILED -------------------
+[12-09-2023 13:27:09.657 INFO com.nopcommerce.account.Level_15_Assert_Verify] - ------------------- FAILED -------------------

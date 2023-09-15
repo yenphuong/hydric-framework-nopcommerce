@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "testng-1.0.dtd" >
+
+<suite parallel="none" name="NopCommerce API">
+	
+	<listeners>
+	<listener class-name="commons.MethodListener"/>
+	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+	<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+	</listeners>
+	
+	<test name="Run API - 1">
+		<parameter name="browser" value="edge" />
+		<classes>
+			<class name="com.nopcommerce.account.Level_15_Assert_Verify" />
+		</classes>
+	</test>
+	
+	<test name="Run API - 2">
+		<parameter name="browser" value="safari" />
+		<classes>
+			<class name="com.nopcommerce.account.Level_15_Assert_Verify" />
+		</classes>
+	</test>
+</suite>

@@ -11,7 +11,7 @@ import commons.PageGeneratorManager;
 import pageObjects.user.HomePageObject;
 import pageObjects.user.RegisterPageObject;
 
-public class Level_16_Log extends BaseTest {
+public class Level_17_ReportNG extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
@@ -65,7 +65,7 @@ public class Level_16_Log extends BaseTest {
 		registerPage.clickToRegisterButton();
 		
 		log.info("Register - Step 7: Verify success message is displayed");
-		verifyEquals(registerPage.getRegisterSuccessMessageText(), "Your registration completed");
+		verifyEquals(registerPage.getRegisterSuccessMessageText(), "Your registration completed.");
 
 	}
 
