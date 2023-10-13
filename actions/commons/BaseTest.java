@@ -4,21 +4,18 @@ import java.io.File;
 import java.time.Duration;
 import java.util.Random;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
-	protected final Logger log;
+	//protected final Logger log;
 	private WebDriver driver;
 	
 	public WebDriver getDriver() {
@@ -26,7 +23,7 @@ public class BaseTest {
 	}
 
 	public BaseTest() {
-		log = LogManager.getLogger(getClass());
+		//log = LogManager.getLogger(getClass());
 	}
 
 	protected WebDriver getBrowerDriver(String browserName) {
@@ -65,7 +62,9 @@ public class BaseTest {
 			driver = new FirefoxDriver();
 			break;
 		case CHROME:
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions(); 
+			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
+			driver = new ChromeDriver(options);
 			break;
 		case EDGE:
 			driver = new EdgeDriver();
@@ -99,58 +98,41 @@ public class BaseTest {
 		}
 	}
 	
-	protected boolean verifyTrue(boolean condition) {
-		boolean pass = true;
-		try {
-			Assert.assertTrue(condition);
-			log.info("------------------- PASSED -------------------");
-		} catch (Throwable e) {
-			log.info("------------------- FAILED -------------------");
-			pass = false;
-			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-			Reporter.getCurrentTestResult().setThrowable(e);
-		}
-		return pass;
-	}
-
-	protected boolean verifyFalse(boolean condition) {
-		boolean pass = true;
-		try {
-			Assert.assertFalse(condition);
-			log.info("------------------- PASSED -------------------");
-		} catch (Throwable e) {
-			log.info("------------------- FAILED -------------------");
-			pass = false;
-			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-			Reporter.getCurrentTestResult().setThrowable(e);
-		}
-		return pass;
-	}
-
-	protected boolean verifyEquals(Object actual, Object expected) {
-		boolean pass = true;
-		try {
-			Assert.assertEquals(actual, expected);
-			log.info("------------------- PASSED -------------------");
-		} catch (Throwable e) {
-			log.info("------------------- FAILED -------------------");
-			pass = false;
-			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-			Reporter.getCurrentTestResult().setThrowable(e);
-		}
-		return pass;
-	}
-
-	@BeforeSuite
-	public void deleteFileReportNG() {
-		log.info("Starting delete all file in ReportNG screenshot");
-		deleteAllFileInFolder();
-		log.info("Deleted success");
-	}
+	/*
+	 * protected boolean verifyTrue(boolean condition) { boolean pass = true; try {
+	 * Assert.assertTrue(condition);
+	 * log.info("------------------- PASSED -------------------"); } catch
+	 * (Throwable e) { log.info("------------------- FAILED -------------------");
+	 * pass = false; VerificationFailures.getFailures().addFailureForTest(Reporter.
+	 * getCurrentTestResult(), e); Reporter.getCurrentTestResult().setThrowable(e);
+	 * } return pass; }
+	 * 
+	 * protected boolean verifyFalse(boolean condition) { boolean pass = true; try {
+	 * Assert.assertFalse(condition);
+	 * log.info("------------------- PASSED -------------------"); } catch
+	 * (Throwable e) { log.info("------------------- FAILED -------------------");
+	 * pass = false; VerificationFailures.getFailures().addFailureForTest(Reporter.
+	 * getCurrentTestResult(), e); Reporter.getCurrentTestResult().setThrowable(e);
+	 * } return pass; }
+	 * 
+	 * protected boolean verifyEquals(Object actual, Object expected) { boolean pass
+	 * = true; try { Assert.assertEquals(actual, expected);
+	 * log.info("------------------- PASSED -------------------"); } catch
+	 * (Throwable e) { log.info("------------------- FAILED -------------------");
+	 * pass = false; VerificationFailures.getFailures().addFailureForTest(Reporter.
+	 * getCurrentTestResult(), e); Reporter.getCurrentTestResult().setThrowable(e);
+	 * } return pass; }
+	 */ 
+	@BeforeSuite 
+	public void deleteFileReport() {
+		deleteAllFileInFolder("reportNGScreenshot"); 
+		deleteAllFileInFolder("allure-json"); 
+    }
 	
-	public void deleteAllFileInFolder() {
+	
+	public void deleteAllFileInFolder(String folderName) {
 		try {
-			String pathFolderDownload = GlobalConstants.REPORTING_IMAGE_PATH;
+			String pathFolderDownload = GlobalConstants.RELATIVE_PROJECT_PATH + File.separator + folderName;
 			File file = new File(pathFolderDownload);
 			File[] listOfFiles = file.listFiles();
 			for (int i = 0; i < listOfFiles.length; i++) {

@@ -4,22 +4,17 @@
 <suite parallel="none" name="NopCommerce Web">
 	<listeners>
 	<listener class-name="commons.MethodListener"/>
-	<listener class-name="reportConfig.ReportNGListener"/>
+	<listener class-name="reportConfig.AllureTestListener"/>
+	<!--<listener class-name="reportConfig.ReportNGListener"/>
 	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
-	<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+	<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
 	</listeners>
-	
-	<test name="Run on Firefox">
-		<parameter name="browser" value="firefox" />
-		<classes>
-			<class name="com.nopcommerce.account.Level_17_ReportNG" />
-		</classes>
-	</test>
+
 	
 	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.nopcommerce.account.Level_17_ReportNG" />
+			<class name="com.nopcommerce.account.Level_19_Allure_Report" />
 		</classes>
 	</test>
 </suite>
