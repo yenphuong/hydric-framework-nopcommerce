@@ -3,6 +3,7 @@ package commons;
 import java.io.File;
 import java.time.Duration;
 import java.util.Random;
+import java.util.logging.LogManager;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -12,10 +13,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
+import org.testng.log4testng.Logger;
 
 public class BaseTest {
-	//protected final Logger log;
+	protected final Logger log;
 	private WebDriver driver;
 	
 	public WebDriver getDriver() {
@@ -23,7 +27,7 @@ public class BaseTest {
 	}
 
 	public BaseTest() {
-		//log = LogManager.getLogger(getClass());
+		log = Logger.getLogger(getClass());
 	}
 
 	protected WebDriver getBrowerDriver(String browserName) {
@@ -49,7 +53,7 @@ public class BaseTest {
 		driver.manage().window().setPosition(new Point(0, 0));
 		driver.manage().window().setSize(new Dimension(1440, 990));
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		driver.get("https://demo.nopcommerce.com/");
 		return driver;
 	}
@@ -79,7 +83,7 @@ public class BaseTest {
 		driver.manage().window().setPosition(new Point(0, 0));
 		driver.manage().window().setSize(new Dimension(1440, 990));
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		driver.get(url);
 		return driver;
 	}
@@ -98,31 +102,49 @@ public class BaseTest {
 		}
 	}
 	
-	/*
-	 * protected boolean verifyTrue(boolean condition) { boolean pass = true; try {
-	 * Assert.assertTrue(condition);
-	 * log.info("------------------- PASSED -------------------"); } catch
-	 * (Throwable e) { log.info("------------------- FAILED -------------------");
-	 * pass = false; VerificationFailures.getFailures().addFailureForTest(Reporter.
-	 * getCurrentTestResult(), e); Reporter.getCurrentTestResult().setThrowable(e);
-	 * } return pass; }
-	 * 
-	 * protected boolean verifyFalse(boolean condition) { boolean pass = true; try {
-	 * Assert.assertFalse(condition);
-	 * log.info("------------------- PASSED -------------------"); } catch
-	 * (Throwable e) { log.info("------------------- FAILED -------------------");
-	 * pass = false; VerificationFailures.getFailures().addFailureForTest(Reporter.
-	 * getCurrentTestResult(), e); Reporter.getCurrentTestResult().setThrowable(e);
-	 * } return pass; }
-	 * 
-	 * protected boolean verifyEquals(Object actual, Object expected) { boolean pass
-	 * = true; try { Assert.assertEquals(actual, expected);
-	 * log.info("------------------- PASSED -------------------"); } catch
-	 * (Throwable e) { log.info("------------------- FAILED -------------------");
-	 * pass = false; VerificationFailures.getFailures().addFailureForTest(Reporter.
-	 * getCurrentTestResult(), e); Reporter.getCurrentTestResult().setThrowable(e);
-	 * } return pass; }
-	 */ 
+	
+	protected boolean verifyTrue(boolean condition) {
+		boolean pass = true;
+		try {
+			Assert.assertTrue(condition);
+			log.info("------------------- PASSED -------------------");
+		} catch (Throwable e) {
+			log.info("------------------- FAILED -------------------");
+			pass = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return pass;
+	}
+
+	protected boolean verifyFalse(boolean condition) {
+		boolean pass = true;
+		try {
+			Assert.assertFalse(condition);
+			log.info("------------------- PASSED -------------------");
+		} catch (Throwable e) {
+			log.info("------------------- FAILED -------------------");
+			pass = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return pass;
+	}
+
+	protected boolean verifyEquals(Object actual, Object expected) {
+		boolean pass = true;
+		try {
+			Assert.assertEquals(actual, expected);
+			log.info("------------------- PASSED -------------------");
+		} catch (Throwable e) {
+			log.info("------------------- FAILED -------------------");
+			pass = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return pass;
+	}
+	  
 	@BeforeSuite 
 	public void deleteFileReport() {
 		deleteAllFileInFolder("reportNGScreenshot"); 
@@ -135,9 +157,11 @@ public class BaseTest {
 			String pathFolderDownload = GlobalConstants.RELATIVE_PROJECT_PATH + File.separator + folderName;
 			File file = new File(pathFolderDownload);
 			File[] listOfFiles = file.listFiles();
-			for (int i = 0; i < listOfFiles.length; i++) {
-				if (listOfFiles[i].isFile()) {
-					new File(listOfFiles[i].toString()).delete();
+			if (listOfFiles.length != 0) {
+				for (int i = 0; i < listOfFiles.length; i++) {
+					if (listOfFiles[i].isFile() && !listOfFiles[i].getName().equals("environment.properties")) {
+						new File(listOfFiles[i].toString()).delete();
+					}
 				}
 			}
 		} catch (Exception e) {

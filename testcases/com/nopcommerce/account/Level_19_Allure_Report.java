@@ -74,7 +74,7 @@ public class Level_19_Allure_Report extends BaseTest {
 
 		registerPage.clickToRegisterButton();
 		
-		Assert.assertEquals(registerPage.getRegisterSuccessMessageText(), "Your registration completed");
+		Assert.assertEquals(registerPage.getRegisterSuccessMessageText(), "Your registration completed.");
 
 	}
 

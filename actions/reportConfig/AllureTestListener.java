@@ -39,7 +39,7 @@ public class AllureTestListener extends BaseTest implements ITestListener {
 		Object testClass = iTestResult.getInstance();
 		WebDriver driver = ((BaseTest) testClass).getDriver();
 		saveScreenshotPNG(iTestResult.getName(), driver);
-		saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");
+		//saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");
 	}
 	
 	@Override
