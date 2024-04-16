@@ -1,4 +1,4 @@
-package com.nopcommerce.share;
+package com.nopcommerce.cookie;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -29,19 +29,19 @@ public class Product extends BaseTest {
 
 		loginPage = homePage.clickToLoginLink();
 
-		loginPage.enterToEmailTextbox(Common_Register.emailAddress);
-		loginPage.enterToPasswordTextbox(Common_Register.password);
-
-		homePage = loginPage.clickToLoginButton();
-
+		loginPage.setCookies(driver, Common_Register.cookies);
+		loginPage.sleepInSecond(5);
+		loginPage.refreshCurrentPage(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
 		customerPage = homePage.clickToMyAccountLink();
 
 		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), Common_Register.firstName);
 		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), Common_Register.lastName);
 		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), Common_Register.emailAddress);
 		
+		
 		System.out.println("Email at Product = " + Common_Register.emailAddress);
-		System.out.println("Password at Product = " + Common_Register.password);
+		//System.out.println("Password at Product = " + Common_Register.password);
 	}
 
 	@Test

@@ -1,4 +1,4 @@
-package com.nopcommerce.share;
+package com.nopcommerce.cookie;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,7 +14,7 @@ import pageObjects.user.HomePageObject;
 import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.RegisterPageObject;
 
-public class Product extends BaseTest {
+public class Payment extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private CustomerPageObject customerPage;
@@ -29,36 +29,35 @@ public class Product extends BaseTest {
 
 		loginPage = homePage.clickToLoginLink();
 
-		loginPage.enterToEmailTextbox(Common_Register.emailAddress);
-		loginPage.enterToPasswordTextbox(Common_Register.password);
-
-		homePage = loginPage.clickToLoginButton();
+		loginPage.setCookies(driver, Common_Register.cookies);
+		loginPage.sleepInSecond(5);
+		loginPage.refreshCurrentPage(driver);
 
 		customerPage = homePage.clickToMyAccountLink();
-
+		homePage = PageGeneratorManager.getHomePage(driver);
 		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), Common_Register.firstName);
 		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), Common_Register.lastName);
 		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), Common_Register.emailAddress);
 		
-		System.out.println("Email at Product = " + Common_Register.emailAddress);
-		System.out.println("Password at Product = " + Common_Register.password);
+		System.out.println("Email at Payment = " + Common_Register.emailAddress);
+		//System.out.println("Password at Payment = " + Common_Register.password);
 	}
 
 	@Test
-	public void Product_01_New_Product() {
+	public void Payment_01_Visa() {
 		
 	}
 
 	@Test
-	public void Product_02_View_Product() {
+	public void Payment_02_Cheque() {
 		
 	}
 	
 	@Test
-	public void Product_03_Edit_Product() {
+	public void Payment_03_Paypal() {
 		
 	}
-
+	
 	@AfterClass
 	public void afterClass() {
 		closeBrowser();

@@ -19,10 +19,14 @@
 		</classes>
 	</test>-->
 	
-	<test name="Run on Firefox">
+	<test name="Run on Firefox" preserve-order="true">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Level_21_Pattern_Object" />
+			<class name="com.nopcommerce.cookie.Common_Register" />
+			
+			<class name="com.nopcommerce.cookie.Order" />
+			<class name="com.nopcommerce.cookie.Product" />
+			<class name="com.nopcommerce.cookie.Payment" />
 		</classes>
 	</test>
 </suite>

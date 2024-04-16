@@ -17,10 +17,8 @@ import pageObjects.user.RegisterPageObject;
 public class Order extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
 	private CustomerPageObject customerPage;
 	private UserLoginPageObject loginPage;
-	private String emailAddress = getEmailRandom();
 
 	@Parameters("browser")
 	@BeforeClass
@@ -28,21 +26,22 @@ public class Order extends BaseTest {
 		driver = getBrowerDriver(browserName);
 		
 		homePage = PageGeneratorManager.getHomePage(driver);
-		
-		homePage = registerPage.clickToNopCommerceLogo();
 
 		loginPage = homePage.clickToLoginLink();
 
-		loginPage.enterToEmailTextbox(emailAddress);
-		loginPage.enterToPasswordTextbox("123456");
+		loginPage.enterToEmailTextbox(Common_Register.emailAddress);
+		loginPage.enterToPasswordTextbox(Common_Register.password);
 
 		homePage = loginPage.clickToLoginButton();
 
 		customerPage = homePage.clickToMyAccountLink();
 
-		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), "John");
-		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "Hihi");
-		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddress);
+		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), Common_Register.firstName);
+		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), Common_Register.lastName);
+		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), Common_Register.emailAddress);
+		
+		System.out.println("Email at Order = " + Common_Register.emailAddress);
+		System.out.println("Password at Order = " + Common_Register.password);
 	}
 
 	@Test
