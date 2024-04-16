@@ -32,49 +32,52 @@ public class Level_21_Pattern_Object extends BaseTest {
 
 	@Test
 	public void User_01_Register_Empty_Data() {
-		registerPage = homePage.clickToRegisterLink();
-
-		registerPage.clickToRegisterButton();
-		Assert.assertEquals(registerPage.getFirstNameErrorMessageText(), "First name is required.");
-		Assert.assertEquals(registerPage.getLastNameErrorMessageText(), "Last name is required.");
-		Assert.assertEquals(registerPage.getEmailErrorMessageText(), "Email is required.");
-		Assert.assertEquals(registerPage.getPasswordErrorMessageText(), "Password is required.");
-		Assert.assertEquals(registerPage.getConfirmPasswordErrorMessageText(), "Password is required.");
+		homePage.clickToHeaderLinkByName("Register");
+		
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
+		registerPage.clickToButtonByText("Register");
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("FirstName"), "First name is required.");
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("LastName"), "Last name is required.");
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("Email"), "Email is required.");
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("Password"), "Password is required.");
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("ConfirmPassword"), "Password is required.");
+		
 	}
 
 	@Test
 	public void User_02_Register_Invalid_Email() {
 		homePage = registerPage.clickToNopCommerceLogo();
 
-		registerPage = homePage.clickToRegisterLink();
+		homePage.clickToHeaderLinkByName("Register");
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
+		
+		registerPage.enterToTextboxById("FirstName","John");
+		registerPage.enterToTextboxById("LastName","Hihi");
+		registerPage.enterToTextboxById("Email","john@hihi@abc");
+		registerPage.enterToTextboxById("Password","123456");
+		registerPage.enterToTextboxById("ConfirmPassword","123456");
 
-		registerPage.enterToFirstNameTextbox("John");
-		registerPage.enterToLastNameTextbox("Hihi");
-		registerPage.enterToEmailTextbox("john@hihi@abc");
-		registerPage.enterToPasswordTextbox("123456");
-		registerPage.enterToConfirmPasswordTextbox("123456");
+		registerPage.clickToButtonByText("Register");
 
-		registerPage.clickToRegisterButton();
-
-		Assert.assertEquals(registerPage.getEmailErrorMessageText(), "Wrong email");
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("Email"), "Wrong email");
 	}
 
 	@Test
 	public void User_03_Register_Invalid_Password() {
 		homePage = registerPage.clickToNopCommerceLogo();
 
+		homePage.clickToHeaderLinkByName("Register");
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
+		
+		registerPage.enterToTextboxById("FirstName","John");
+		registerPage.enterToTextboxById("LastName","Hihi");
+		registerPage.enterToTextboxById("Email","john@hihi.com");
+		registerPage.enterToTextboxById("Password","12");
+		registerPage.enterToTextboxById("ConfirmPassword","12");
 
-		registerPage = homePage.clickToRegisterLink();
+		registerPage.clickToButtonByText("Register");
 
-		registerPage.enterToFirstNameTextbox("John");
-		registerPage.enterToLastNameTextbox("Hihi");
-		registerPage.enterToEmailTextbox("john@hihi.com");
-		registerPage.enterToPasswordTextbox("12");
-		registerPage.enterToConfirmPasswordTextbox("12");
-
-		registerPage.clickToRegisterButton();
-
-		Assert.assertEquals(registerPage.getPasswordErrorMessageText(),
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("Password"),
 				"Password must meet the following rules:\nmust have at least 6 characters");
 	}
 
@@ -82,16 +85,18 @@ public class Level_21_Pattern_Object extends BaseTest {
 	public void User_04_Register_Incorrect_Confirm_Password() {
 		homePage = registerPage.clickToNopCommerceLogo();
 
-		registerPage = homePage.clickToRegisterLink();
-		registerPage.enterToFirstNameTextbox("John");
-		registerPage.enterToLastNameTextbox("Hihi");
-		registerPage.enterToEmailTextbox("john@hihi.com");
-		registerPage.enterToPasswordTextbox("123456");
-		registerPage.enterToConfirmPasswordTextbox("123356");
+		homePage.clickToHeaderLinkByName("Register");
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
+		
+		registerPage.enterToTextboxById("FirstName","John");
+		registerPage.enterToTextboxById("LastName","Hihi");
+		registerPage.enterToTextboxById("Email","john@hihi.com");
+		registerPage.enterToTextboxById("Password","123456");
+		registerPage.enterToTextboxById("ConfirmPassword","123356");
 
-		registerPage.clickToRegisterButton();
-
-		Assert.assertEquals(registerPage.getConfirmPasswordErrorMessageText(),
+		registerPage.clickToButtonByText("Register");
+		
+		Assert.assertEquals(registerPage.getTextboxErrorMessageById("ConfirmPassword"),
 				"The password and confirmation password do not match.");
 	}
 
@@ -99,15 +104,17 @@ public class Level_21_Pattern_Object extends BaseTest {
 	public void User_05_Register_Success() {
 		homePage = registerPage.clickToNopCommerceLogo();
 
-		registerPage = homePage.clickToRegisterLink();
+		homePage.clickToHeaderLinkByName("Register");
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
 
-		registerPage.enterToFirstNameTextbox("John");
-		registerPage.enterToLastNameTextbox("Hihi");
-		registerPage.enterToEmailTextbox(emailAddress);
-		registerPage.enterToPasswordTextbox("123456");
-		registerPage.enterToConfirmPasswordTextbox("123456");
+		
+		registerPage.enterToTextboxById("FirstName","John");
+		registerPage.enterToTextboxById("LastName","Hihi");
+		registerPage.enterToTextboxById("Email",emailAddress);
+		registerPage.enterToTextboxById("Password","123456");
+		registerPage.enterToTextboxById("ConfirmPassword","123456");
 
-		registerPage.clickToRegisterButton();
+		registerPage.clickToButtonByText("Register");
 
 		Assert.assertEquals(registerPage.getRegisterSuccessMessageText(), "Your registration completed");
 
@@ -117,19 +124,24 @@ public class Level_21_Pattern_Object extends BaseTest {
 	public void User_06_Register_Login_Success() {
 		homePage = registerPage.clickToNopCommerceLogo();
 
-		loginPage = homePage.clickToLoginLink();
+		homePage.clickToHeaderLinkByName("Log in");
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 
-		loginPage.enterToEmailTextbox(emailAddress);
-		loginPage.enterToPasswordTextbox("123456");
+		
+		loginPage.enterToTextboxById("Email", emailAddress);
+		loginPage.enterToTextboxById("Password","123456");
 
-		homePage = loginPage.clickToLoginButton();
+		loginPage.clickToButtonByText("Log in");
+		
+		homePage = PageGeneratorManager.getHomePage(driver);
 
-		customerPage = homePage.clickToMyAccountLink();
-
-		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), "John");
-		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "Hihi");
-		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddress);
-
+		homePage.clickToHeaderLinkByName("My account");
+		customerPage = PageGeneratorManager.getCustomerPage(driver);
+		
+		Assert.assertEquals(customerPage.getTextboxAttributeById("FirstName", "value"), "John");
+		Assert.assertEquals(customerPage.getTextboxAttributeById("LastName", "value"), "Hihi");
+		Assert.assertEquals(customerPage.getTextboxAttributeById("Email", "value"), emailAddress);
+		
 	}
 
 	@AfterClass
