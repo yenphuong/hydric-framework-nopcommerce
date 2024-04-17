@@ -30,11 +30,10 @@ public class Payment extends BaseTest {
 		loginPage = homePage.clickToLoginLink();
 
 		loginPage.setCookies(driver, Common_Register.cookies);
-		loginPage.sleepInSecond(5);
+		
 		loginPage.refreshCurrentPage(driver);
 
-		customerPage = homePage.clickToMyAccountLink();
-		homePage = PageGeneratorManager.getHomePage(driver);
+		customerPage = homePage.openMyAccountLink();
 		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), Common_Register.firstName);
 		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), Common_Register.lastName);
 		Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), Common_Register.emailAddress);

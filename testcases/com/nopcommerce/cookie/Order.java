@@ -30,10 +30,9 @@ public class Order extends BaseTest {
 		loginPage = homePage.clickToLoginLink();
 
 		loginPage.setCookies(driver, Common_Register.cookies);
-		loginPage.sleepInSecond(5);
 		loginPage.refreshCurrentPage(driver);
-		homePage = PageGeneratorManager.getHomePage(driver);
-		customerPage = homePage.clickToMyAccountLink();
+		//homePage = PageGeneratorManager.getHomePage(driver);
+		customerPage = homePage.openMyAccountLink();
 
 		Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), Common_Register.firstName);
 		Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), Common_Register.lastName);
@@ -66,6 +65,7 @@ public class Order extends BaseTest {
 
 	@AfterClass
 	public void afterClass() {
+		Common_Register.cookies = customerPage.getBrowserCookies(driver);
 		closeBrowser();
 	}
 
