@@ -22,11 +22,8 @@
 	<test name="Run on Firefox" preserve-order="true">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.cookie.Common_Register" />
+			<class name="com.nopcommerce.account.Level_22_Close_Browser" />
 			
-			<class name="com.nopcommerce.cookie.Order" />
-			<class name="com.nopcommerce.cookie.Product" />
-			<class name="com.nopcommerce.cookie.Payment" />
 		</classes>
 	</test>
 </suite>
