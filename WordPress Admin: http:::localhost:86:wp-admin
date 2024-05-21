@@ -1,0 +1,44 @@
+WordPress Admin: 
+	http://localhost:86/wp-admin
+	http://127.0.0.1:86/wp-admin
+	http://172.25.83.215:86/wp-admin
+	http://automationfc.blog:86/wp-admin
+WordPress User: 
+	http://localhost:86
+	http://127.0.0.1:86
+	http://172.25.83.215:86
+	http://automationfc.blog:86
+
+
+Máy local: IP private
+Máy server: IP public
+	http://35.68.12.98:86/wp-admin
+
+		http://35.68.12.98:86
+	-> ánh xạ qua 1 domain: DNS (domain name service)
+	abc.com <- ví dụ mua domain này ánh xạ 
+
+
+Username: automationfc
+Password: automationfc
+Email: phuonglny@gmail.com
+
+MySQL Admin: 
+	http://localhost:86/phpmyadmin
+	Database name: automationfc
+	Database user: root
+	Port: 3309
+	Database password: để trống
+	User/pass: phuonglny/PhuongLNY@123
+
+OrangeHRM:
+	http://localhost:86/orangehrm5
+	Database name: orangehrm5
+	Database user: root
+	Port: 3309
+	Database password: để trống
+	Employee name: Phuong Le
+	Email address: phuonglny@gmail.com
+	User name: phuonglny
+	Password: PhuongLNY@123
+	
