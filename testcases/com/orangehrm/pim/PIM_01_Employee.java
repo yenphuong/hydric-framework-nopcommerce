@@ -3,6 +3,7 @@ package com.orangehrm.pim;
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 
 
 import commons.BaseTest;
+import commons.GlobalConstantsOrangeHRM;
 import pageObject.orangehrm.AddEmployeePageObject;
 import pageObject.orangehrm.DashboardPageObject;
 import pageObject.orangehrm.EmployeeListPageObject;
@@ -20,7 +22,7 @@ import reportConfig.ExtentTestManager;
 
 public class PIM_01_Employee extends BaseTest {
 	private WebDriver driver;
-	private String browserName, employeeID;
+	private String browserName, employeeID, firstNameUser, lastNameUser;
 	private LoginPageObject loginPage;
 	private DashboardPageObject dashboardPage;
 	private EmployeeListPageObject employeeListPage;
@@ -32,11 +34,13 @@ public class PIM_01_Employee extends BaseTest {
 	public void beforeClass(String url, String browserName) {
 		this.browserName = browserName;
 		driver = getBrowerDriver(browserName, url);
+		firstNameUser = "Yen";
+		lastNameUser = "Phuong";	
 		
 		loginPage = PageGeneratorManager.getLoginPage(driver);
 		
-		loginPage.enterToUsernameTextbox("phuonglny");
-		loginPage.enterToPasswordTextbox("PhuongLNY@123");
+		loginPage.enterToUsernameTextbox(GlobalConstantsOrangeHRM.DEV_ADMIN_USERNAME);
+		loginPage.enterToPasswordTextbox(GlobalConstantsOrangeHRM.DEV_ADMIN_PASSWORD);
 		dashboardPage = loginPage.clickToLoginButton();
 		
 		employeeListPage = dashboardPage.openPIMModule();
@@ -48,16 +52,31 @@ public class PIM_01_Employee extends BaseTest {
 		ExtentTestManager.startTest(method.getName() + " - " + this.browserName.toUpperCase(),
 				"Employee_01_Add_New");
 		addEmployeePage = employeeListPage.clickToAddEmployeeButton();
-		addEmployeePage.enterToFirstnameTextbox("");
-		addEmployeePage.enterToLastnameTextbox("");
+		addEmployeePage.enterToFirstnameTextbox(firstNameUser);
+		addEmployeePage.enterToLastnameTextbox(lastNameUser);
 		employeeID = addEmployeePage.getEmployeeID();
 		
 		addEmployeePage.clickSaveButton();
-		addEmployeePage.isSuccessMessageDisplayed("Successfully Saved");
 		
-		//p[contains(@class, 'oxd-text--toast-message') and text()='Successfully Updated'] 
-	
+		addEmployeePage.isSuccessMessageDisplayed("Successfully Saved");
+		addEmployeePage.waitForSpinnerLoadingIconInvisible();
+		
 		personalDetailsPage = PageGeneratorManager.getPersonalDetailsPage(driver);
+		
+		Assert.assertEquals(personalDetailsPage.getFirstnameValue(), firstNameUser);
+		Assert.assertEquals(personalDetailsPage.getLastnameValue(), lastNameUser);
+		Assert.assertEquals(personalDetailsPage.getEmployeeIDValue(), employeeID);
+		
+		employeeListPage = personalDetailsPage.clickToEmployeeListButton();
+		employeeListPage.waitForSpinnerLoadingIconInvisible();
+		
+		employeeListPage.enterToEmployeeIDTextbox(employeeID);
+		employeeListPage.clickToSearchButton();
+		employeeListPage.waitForSpinnerLoadingIconInvisible();
+		
+		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("Id", employeeID));
+		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("First (& Middle) Name", ""));
+		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("Last Name", ""));
 	}
 
 	@Test

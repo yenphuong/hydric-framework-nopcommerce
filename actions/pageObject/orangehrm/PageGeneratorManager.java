@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PageGeneratorManager {
 
-	public static AddEmployeePageObject getEmployeePage(WebDriver driver) {
+	public static AddEmployeePageObject getAddEmployeePage(WebDriver driver) {
 		return new AddEmployeePageObject(driver);
 	}
 	

@@ -7,7 +7,7 @@
 	<listener class-name="reportConfig.ExtentTestListener"/>
 	</listeners>
 
-	<parameter name="url" value="http://automationfc.testing:86/orangehrm5"></parameter>
+	<parameter name="url" value="http://localhost:86/orangehrm5/"></parameter>
 	
 	<test name="Run on Chrome" preserve-order="true">
 		<parameter name="browser" value="chrome" />
