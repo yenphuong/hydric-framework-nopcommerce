@@ -17,7 +17,7 @@
 	<classpathentry kind="lib" path="libExtentReport/lombok-1.18.12.jar"/>
 	<classpathentry kind="lib" path="libExtentReport/reactive-streams-1.0.3.jar"/>
 	<classpathentry kind="lib" path="libExtentReport/rxjava-3.0.4.jar"/>
-	<classpathentry kind="lib" path="libSelenium/selenium-server-4.21.0.jar"/>
+	<classpathentry kind="lib" path="libSelenium/selenium-server-4.21.0.jar" sourcepath="libSelenium/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="libLog4jver2/log4j-api-2.19.0.jar"/>
 	<classpathentry kind="lib" path="libLog4jver2/log4j-core-2.19.0.jar"/>
 	<classpathentry kind="lib" path="libReportNG/commons-collections-3.2.1.jar"/>

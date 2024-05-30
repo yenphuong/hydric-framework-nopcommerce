@@ -66,9 +66,7 @@ public class HomePageObject extends BasePage {
 		// sort ASC/ DESC
 		Collections.sort(allValues);
 		return allValues;
-	}
-
-	public void enterToTextboxByColumnNameAndRowIndex(String columnName, String rowIndex, String valueToSend) {
+	}public void enterToTextboxByColumnNameAndRowIndex(String columnName, String rowIndex, String valueToSend) {
 		int columnIndex = getListElementSize(driver, HomePageUI.DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
 		waitForElementVisible(driver, HomePageUI.DYNAMIC_TEXTBOX_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
 		sendkeyToElement(driver, HomePageUI.DYNAMIC_TEXTBOX_ROW_INDEX_AND_COLUMN_INDEX, valueToSend, rowIndex, String.valueOf(columnIndex));

@@ -63,6 +63,9 @@ public class PIM_01_Employee extends BaseTest {
 		
 		personalDetailsPage = PageGeneratorManager.getPersonalDetailsPage(driver);
 		
+		personalDetailsPage.isPersonalDetailsHeaderDisplayed();
+		personalDetailsPage.waitForSpinnerLoadingIconInvisible();
+		
 		Assert.assertEquals(personalDetailsPage.getFirstnameValue(), firstNameUser);
 		Assert.assertEquals(personalDetailsPage.getLastnameValue(), lastNameUser);
 		Assert.assertEquals(personalDetailsPage.getEmployeeIDValue(), employeeID);
@@ -75,8 +78,8 @@ public class PIM_01_Employee extends BaseTest {
 		employeeListPage.waitForSpinnerLoadingIconInvisible();
 		
 		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("Id", employeeID));
-		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("First (& Middle) Name", ""));
-		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("Last Name", ""));
+		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("First (& Middle) Name", firstNameUser));
+		Assert.assertTrue(employeeListPage.isValueDisplayedAtColumnName("Last Name", lastNameUser));
 	}
 
 	@Test

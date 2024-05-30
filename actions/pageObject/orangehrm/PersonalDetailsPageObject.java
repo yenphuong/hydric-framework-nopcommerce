@@ -34,4 +34,9 @@ public class PersonalDetailsPageObject extends BasePageObjectOrangeHRM {
 		clickToElement(driver, PersonalDetailsPageUI.EMPLOYEE_LIST_BUTTON);
 		return PageGeneratorManager.getEmployeeListPage(driver);
 	}
+
+	public boolean isPersonalDetailsHeaderDisplayed() {
+		waitForElementVisible(driver, PersonalDetailsPageUI.PERSONAL_DETAILS_HEADER);
+		return isElementDisplayed(driver, PersonalDetailsPageUI.PERSONAL_DETAILS_HEADER);
+	}
 }
