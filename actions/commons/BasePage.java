@@ -24,6 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 	private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
+	
 	public static BasePage getBasePage() {
 		return new BasePage();
 	}

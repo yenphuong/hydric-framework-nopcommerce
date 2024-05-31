@@ -1,5 +1,7 @@
 package com.orangehrm.pim;
 
+import static org.testng.Assert.assertTrue;
+
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
@@ -86,6 +88,17 @@ public class PIM_01_Employee extends BaseTest {
 	public void Employee_02_Personal_Details(Method method) {
 		ExtentTestManager.startTest(method.getName() + " - " + this.browserName.toUpperCase(),
 				"Employee_02_Personal_Details");
+		
+		employeeListPage.clickToEditIconByEmployeeID(employeeID);	
+		
+		assertTrue(personalDetailsPage.isPersonalDetailsHeaderDisplayed());
+		
+		Assert.assertEquals(personalDetailsPage.getFirstnameValue(), firstNameUser);
+		Assert.assertEquals(personalDetailsPage.getLastnameValue(), lastNameUser);
+		Assert.assertEquals(personalDetailsPage.getEmployeeIDValue(), employeeID);
+		
+		
+		
 	}
 
 	@Test

@@ -42,5 +42,12 @@ public class EmployeeListPageObject extends BasePageObjectOrangeHRM {
 		return isElementDisplayed(driver, BasePageUIOrangeHRM.DYNAMIC_COLUMN_VALUE_BY_NAME, columnName, String.valueOf(columnIndex), valueVerify);
 		}
 
+	public PersonalDetailsPageObject clickToEditIconByEmployeeID(String employeeID) {
+		waitForElementClickable(driver, EmployeeListPageUI.EDIT_ICON_BY_EMPLOYEE_ID, employeeID);
+		clickToElement(driver, EmployeeListPageUI.EDIT_ICON_BY_EMPLOYEE_ID, employeeID);
+		waitForSpinnerLoadingIconInvisible();
+		return PageGeneratorManager.getPersonalDetailsPage(driver);
+	}
+
 	
 }
