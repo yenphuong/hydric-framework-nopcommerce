@@ -1,3 +1,9 @@
 /bin/
 /test-output/
 /Access Token Framework Project.rtf
+/logs/
+/extentV5/
+/browserLogs/
+/downloadFiles/
+/alure-json/
+/.DS_Store

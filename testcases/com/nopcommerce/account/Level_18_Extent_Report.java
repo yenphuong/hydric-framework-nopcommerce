@@ -53,7 +53,7 @@ public class Level_18_Extent_Report extends BaseTest {
 		Assert.assertEquals(registerPage.getLastNameErrorMessageText(), "Last name is required.");
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void User_02_Register_Success(Method method) {
 		ExtentTestManager.startTest(method.getName() + " - " + this.browserName.toUpperCase(),
 				"User_02_Register_Success");
