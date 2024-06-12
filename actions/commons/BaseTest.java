@@ -54,56 +54,55 @@ public class BaseTest {
 
 		// Selenium Manager (4.6 tro len)
 		switch (browser) {
-		/*
-		 * case FIREFOX: driver = new FirefoxDriver(); break; case CHROME: driver = new
-		 * ChromeDriver(); break; case EDGE: driver = new EdgeDriver(); break; case
-		 * SAFARI: driver = new SafariDriver(); break;
-		 */
 
-		// Demo Localization, disable notifications popup
 		case FIREFOX:
-			FirefoxOptions fOptions = new FirefoxOptions();
-			driver = new FirefoxDriver(fOptions);
-			fOptions.addArguments("-private");
-			fOptions.addPreference("geo.enabled", false);
-			fOptions.addPreference("geo.provider.use_corelocation", false);
-			fOptions.addPreference("intl.accept_languages", "vi-vn, vi");
+			driver = new FirefoxDriver();
 			break;
 		case CHROME:
-			Map<String, Object> prefs = new HashMap<String, Object>();
-			prefs.put("profile.default_content_setting_values.notifications", 2);
-			prefs.put("credentials_enable_service", false);
-			prefs.put("profile.password_manager_enabled", false);
-			prefs.put("autofill.profile_enabled", false);
-			prefs.put("autofill.credit_card_enabled", false);
-			prefs.put("profile.default_content_settings.popups", 0);
-			prefs.put("download.default_directory", GlobalConstants.DOWNLOAD_PATH);
-			
-			ChromeOptions cOptions = new ChromeOptions();
-			cOptions.setExperimentalOption("useAutomationExtension", false);
-			cOptions.setExperimentalOption("excludeSwitches", Collections.singleton("enable-automation"));
-			cOptions.setExperimentalOption("prefs", prefs);
-			//cOptions.addArguments("--remote-debugging-pipe");
-			cOptions.addArguments("--user-data-dir=/Users/lap14153/Library/Application Support/Google/Chrome/");
-			cOptions.addArguments("--profile-directory=Default");
-			//cOptions.addArguments("--incognito");
-			cOptions.addArguments("--lang=vi");
-			cOptions.addArguments("--disable-notifications");
-			cOptions.addArguments("--disable-geolocation");
-			driver = new ChromeDriver(cOptions);
+			driver = new ChromeDriver();
 			break;
 		case EDGE:
-			EdgeOptions eOptions = new EdgeOptions();
-			eOptions.addArguments("--inprivate");
-			eOptions.addArguments("--lang=vi");
-			eOptions.addArguments("--disable-notifications");
-			driver = new EdgeDriver(eOptions);
+			driver = new EdgeDriver();
 			break;
-		
-			
-			
-			
-			
+		case SAFARI:
+			driver = new SafariDriver();
+			break;
+
+		// Demo Localization, disable notifications popup
+		/*
+		 * case FIREFOX: FirefoxOptions fOptions = new FirefoxOptions(); driver = new
+		 * FirefoxDriver(fOptions); fOptions.addArguments("-private");
+		 * fOptions.addPreference("geo.enabled", false);
+		 * fOptions.addPreference("geo.provider.use_corelocation", false);
+		 * fOptions.addPreference("intl.accept_languages", "vi-vn, vi"); break; case
+		 * CHROME: Map<String, Object> prefs = new HashMap<String, Object>();
+		 * prefs.put("profile.default_content_setting_values.notifications", 2);
+		 * prefs.put("credentials_enable_service", false);
+		 * prefs.put("profile.password_manager_enabled", false);
+		 * prefs.put("autofill.profile_enabled", false);
+		 * prefs.put("autofill.credit_card_enabled", false);
+		 * prefs.put("profile.default_content_settings.popups", 0);
+		 * prefs.put("download.default_directory", GlobalConstants.DOWNLOAD_PATH);
+		 * 
+		 * ChromeOptions cOptions = new ChromeOptions();
+		 * cOptions.setExperimentalOption("useAutomationExtension", false);
+		 * cOptions.setExperimentalOption("excludeSwitches",
+		 * Collections.singleton("enable-automation"));
+		 * cOptions.setExperimentalOption("prefs", prefs);
+		 * //cOptions.addArguments("--remote-debugging-pipe"); cOptions.
+		 * addArguments("--user-data-dir=/Users/lap14153/Library/Application Support/Google/Chrome/"
+		 * ); cOptions.addArguments("--profile-directory=Default");
+		 * //cOptions.addArguments("--incognito"); cOptions.addArguments("--lang=vi");
+		 * cOptions.addArguments("--disable-notifications");
+		 * cOptions.addArguments("--disable-geolocation"); driver = new
+		 * ChromeDriver(cOptions); break; case EDGE: EdgeOptions eOptions = new
+		 * EdgeOptions(); eOptions.addArguments("--inprivate");
+		 * eOptions.addArguments("--lang=vi");
+		 * eOptions.addArguments("--disable-notifications"); driver = new
+		 * EdgeDriver(eOptions); break;
+		 * 
+		 */
+
 		// Demo log level
 
 		/*
@@ -124,7 +123,7 @@ public class BaseTest {
 		 * .withLoglevel(ChromiumDriverLogLevel.DEBUG).build(); driver = new
 		 * EdgeDriver(eService); break;
 		 */
-			
+
 		// Demo Browser Driver Log to Console
 		/*
 		 * case FIREFOX_LOG_CONSOLE: FirefoxDriverService fService = new

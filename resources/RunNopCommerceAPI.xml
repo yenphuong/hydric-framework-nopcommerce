@@ -9,12 +9,12 @@
 	-->
 	</listeners>
 	
-	<!--<test name="Run Firefox Headless">
+	<test name="Run Firefox Headless">
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="com.nopcommerce.account.Level_18_Extent_Report" />
 		</classes>
-	</test>-->
+	</test>
 	
 	<test name="Run Chrome Headless">
 		<parameter name="browser" value="chrome" />
@@ -23,10 +23,10 @@
 		</classes>
 	</test>
 	
-	<!--<test name="Run Edge Headless">
+	<test name="Run Edge Headless">
 		<parameter name="browser" value="edge" />
 		<classes>
 			<class name="com.nopcommerce.account.Level_18_Extent_Report" />
 		</classes>
-	</test>-->
+	</test>
 </suite>
