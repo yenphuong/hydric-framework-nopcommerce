@@ -39,4 +39,39 @@ public class PersonalDetailsPageObject extends BasePageObjectOrangeHRM {
 		waitForElementVisible(driver, PersonalDetailsPageUI.PERSONAL_DETAILS_HEADER);
 		return isElementDisplayed(driver, PersonalDetailsPageUI.PERSONAL_DETAILS_HEADER);
 	}
+
+	public void enterToDriverLicenseNumberTextbox(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToLicenseExpiryDatePicker(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToNationalityDropdown(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToMaritalStatusDropdown(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToDateOfBirthDatePicker(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToRadioButtonByLabelName(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void clickToSaveButtonAtPersonalDetailPart() {
+		// TODO Auto-generated method stub
+		
+	}
 }

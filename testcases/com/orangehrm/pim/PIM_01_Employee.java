@@ -24,7 +24,6 @@ import reportConfig.ExtentTestManager;
 
 public class PIM_01_Employee extends BaseTest {
 	private WebDriver driver;
-	private String browserName, employeeID, firstNameUser, lastNameUser;
 	private LoginPageObject loginPage;
 	private DashboardPageObject dashboardPage;
 	private EmployeeListPageObject employeeListPage;
@@ -38,7 +37,12 @@ public class PIM_01_Employee extends BaseTest {
 		driver = getBrowerDriver(browserName, url);
 		firstNameUser = "Yen";
 		lastNameUser = "Phuong";	
-		
+		licenseNumber = "D83772430"; 
+		licenseExpiryDate = "2024-05-14"; 
+		nationality = "American"; 
+		maritalStatus = "Married";
+		dateOfBirth = "1980-04-15";
+		gender = "Male";
 		loginPage = PageGeneratorManager.getLoginPage(driver);
 		
 		loginPage.enterToUsernameTextbox(GlobalConstantsOrangeHRM.DEV_ADMIN_USERNAME);
@@ -97,6 +101,16 @@ public class PIM_01_Employee extends BaseTest {
 		Assert.assertEquals(personalDetailsPage.getLastnameValue(), lastNameUser);
 		Assert.assertEquals(personalDetailsPage.getEmployeeIDValue(), employeeID);
 		
+		//personalDetailsPage.enterToNicknameTextbox("");
+		
+		personalDetailsPage.enterToDriverLicenseNumberTextbox("");
+		personalDetailsPage.enterToLicenseExpiryDatePicker("");
+		personalDetailsPage.enterToNationalityDropdown("");
+		personalDetailsPage.enterToMaritalStatusDropdown("");
+		personalDetailsPage.enterToDateOfBirthDatePicker("");
+		personalDetailsPage.enterToRadioButtonByLabelName("");
+		
+		personalDetailsPage.clickToSaveButtonAtPersonalDetailPart();
 		
 		
 	}
@@ -153,5 +167,9 @@ public class PIM_01_Employee extends BaseTest {
 	public void afterClass() {
 		closeBrowser();
 	}
+
+
+	private String browserName, employeeID, firstNameUser, lastNameUser;
+	private String licenseNumber, licenseExpiryDate, nationality, maritalStatus, dateOfBirth, gender;
 
 }

@@ -1,1 +1,0 @@
-{"uuid":"5b52e175-f5f7-4204-8872-3122ba1b1b30","name":"NopCommerce Testing Browsers","children":["43503faa-d1f7-4c22-8782-fff06978c2c9"],"befores":[{"name":"deleteFileReport","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1717987212662,"stop":1717987212676}],"afters":[],"start":1717987212624,"stop":1717987219473}
