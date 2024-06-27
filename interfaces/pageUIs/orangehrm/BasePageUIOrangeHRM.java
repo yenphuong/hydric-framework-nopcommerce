@@ -9,4 +9,6 @@ public class BasePageUIOrangeHRM {
 	public static final String SPINNER_LOADING_ICON = "css=div.oxd-loading-spinner-container";
 	public static final String DYNAMIC_COLUMN_INDEX_BY_NAME = "xpath=//div[text()='%s']/preceding-sibling::div";
 	public static final String DYNAMIC_COLUMN_VALUE_BY_NAME ="xpath=//div[text()='%s']/ancestor::div[@class='oxd-table-header']/following-sibling::div//div[@role='cell'][%s]/div[contains(text(),'%s')]";
+	public static final String DYNAMIC_RADIO_BY_LABEL = "xpath=//label[contains(string(), '%s')]/input";
+
 }

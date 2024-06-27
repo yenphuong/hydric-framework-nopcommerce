@@ -103,15 +103,26 @@ public class PIM_01_Employee extends BaseTest {
 		
 		//personalDetailsPage.enterToNicknameTextbox("");
 		
-		personalDetailsPage.enterToDriverLicenseNumberTextbox("");
-		personalDetailsPage.enterToLicenseExpiryDatePicker("");
-		personalDetailsPage.enterToNationalityDropdown("");
-		personalDetailsPage.enterToMaritalStatusDropdown("");
-		personalDetailsPage.enterToDateOfBirthDatePicker("");
-		personalDetailsPage.enterToRadioButtonByLabelName("");
+		personalDetailsPage.enterToDriverLicenseNumberTextbox(licenseNumber);
+		personalDetailsPage.enterToLicenseExpiryDatePicker(licenseExpiryDate);
+		personalDetailsPage.enterToNationalityDropdown(nationality);
+		personalDetailsPage.enterToMaritalStatusDropdown(maritalStatus);
+		personalDetailsPage.enterToDateOfBirthDatePicker(dateOfBirth);
+		personalDetailsPage.enterToRadioButtonByLabelName(gender);
 		
 		personalDetailsPage.clickToSaveButtonAtPersonalDetailPart();
 		
+		Assert.assertTrue(personalDetailsPage.isSuccessMessageDisplayed("Successfully Updated"));
+		personalDetailsPage.waitForSpinnerLoadingIconInvisible();
+		
+		Assert.assertEquals(personalDetailsPage.isLicenseNumberText(),licenseNumber);
+		Assert.assertEquals(personalDetailsPage.isLicenseExpiryDateText(),licenseExpiryDate);
+		
+		Assert.assertEquals(personalDetailsPage.isNationalityDropdownSelectedText(), nationality);
+		Assert.assertEquals(personalDetailsPage.isMaritalDropdownSelectedText(), maritalStatus);
+		
+		Assert.assertEquals(personalDetailsPage.isDobText(), dateOfBirth);
+		Assert.assertTrue(personalDetailsPage.isRadioButtonSelectedByLabelName(gender));
 		
 	}
 

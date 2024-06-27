@@ -40,38 +40,50 @@ public class PersonalDetailsPageObject extends BasePageObjectOrangeHRM {
 		return isElementDisplayed(driver, PersonalDetailsPageUI.PERSONAL_DETAILS_HEADER);
 	}
 
-	public void enterToDriverLicenseNumberTextbox(String string) {
-		// TODO Auto-generated method stub
-		
+	public void enterToDriverLicenseNumberTextbox(String licenseNumber) {
+		waitForElementVisible(driver, PersonalDetailsPageUI.DRIVEN_LICENSE_NUMBER_TEXTBOX);
+		sendkeyToElement(driver, PersonalDetailsPageUI.DRIVEN_LICENSE_NUMBER_TEXTBOX, licenseNumber);
 	}
 
-	public void enterToLicenseExpiryDatePicker(String string) {
-		// TODO Auto-generated method stub
-		
+	public void enterToLicenseExpiryDatePicker(String licenseExpiryDate) {
+		waitForElementVisible(driver, PersonalDetailsPageUI.DRIVEN_LICENSE_EXPIRY_DATE_PICKER);
+		sendkeyToElement(driver, PersonalDetailsPageUI.DRIVEN_LICENSE_EXPIRY_DATE_PICKER, licenseExpiryDate);
 	}
 
-	public void enterToNationalityDropdown(String string) {
-		// TODO Auto-generated method stub
-		
+	public void enterToNationalityDropdown(String nationality) {
+		waitForElementClickable(driver, PersonalDetailsPageUI.NATIONALITY_DROPDOWN_CHECKBOX_PARENT);
+		selectItemInCustomDropdown(driver, PersonalDetailsPageUI.NATIONALITY_DROPDOWN_CHECKBOX_PARENT, PersonalDetailsPageUI.NATIONALITY_DROPDOWN_CHECKBOX_CHILD, nationality);
 	}
 
-	public void enterToMaritalStatusDropdown(String string) {
-		// TODO Auto-generated method stub
-		
+	public void enterToMaritalStatusDropdown(String maritalStatus) {
+		waitForElementClickable(driver, PersonalDetailsPageUI.MARITAL_STATUS_DROPDOWN_CHECKBOX_PARENT);
+		selectItemInCustomDropdown(driver, PersonalDetailsPageUI.MARITAL_STATUS_DROPDOWN_CHECKBOX_PARENT, PersonalDetailsPageUI.MARITAL_STATUS_DROPDOWN_CHECKBOX_CHILD, maritalStatus);
 	}
 
-	public void enterToDateOfBirthDatePicker(String string) {
-		// TODO Auto-generated method stub
-		
+	public void enterToDateOfBirthDatePicker(String dateOfBirth) {
+		waitForElementVisible(driver, PersonalDetailsPageUI.DOB_DATE_PICKER);
+		sendkeyToElement(driver, PersonalDetailsPageUI.DOB_DATE_PICKER, dateOfBirth);
 	}
 
-	public void enterToRadioButtonByLabelName(String string) {
-		// TODO Auto-generated method stub
-		
+	public String isLicenseNumberText() {
+		return getElementAttribute(driver, PersonalDetailsPageUI.DRIVEN_LICENSE_NUMBER_TEXTBOX, "value");
 	}
 
-	public void clickToSaveButtonAtPersonalDetailPart() {
-		// TODO Auto-generated method stub
-		
+	public String isLicenseExpiryDateText() {
+		return getElementAttribute(driver, PersonalDetailsPageUI.DRIVEN_LICENSE_EXPIRY_DATE_PICKER, "value");
 	}
+	
+	public String isNationalityDropdownSelectedText() {
+		return getElementText(driver, PersonalDetailsPageUI.NATIONALITY_DROPDOWN_CHECKBOX_RESULT);
+	}
+
+	public String isMaritalDropdownSelectedText() {
+		return getElementText(driver, PersonalDetailsPageUI.MARITAL_STATUS_DROPDOWN_CHECKBOX_RESULT);
+	}
+	
+	public String isDobText() {
+		return getElementAttribute(driver, PersonalDetailsPageUI.DOB_DATE_PICKER, "value");
+	}
+
+	
 }
